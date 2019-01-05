@@ -1,0 +1,29 @@
+{
+  "grammar": {
+    "terminals": ["+", "*", "(", ")", "a"],
+    "nonTerminals": ["S", "A", "B", "C","D"],
+    "productions": [
+      {
+        "left": "S",
+        "right": ["BA"]
+      },
+      {
+        "left": "A",
+        "right": ["+BA",""]
+      },
+      {
+        "left": "B",
+        "right": ["DC"]
+      },
+      {
+        "left": "C",
+        "right": ["*DC", ""]
+      },
+      {
+        "left": "D",
+        "right": ["(S)","a"]
+      }
+    ],
+    "startingSymbol": "S"
+  }
+}

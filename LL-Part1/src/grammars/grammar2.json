@@ -1,0 +1,25 @@
+{
+  "grammar": {
+    "terminals": ["a", "b", "d", "g", "h"],
+    "nonTerminals": ["S", "A", "B", "C"],
+    "productions": [
+      {
+        "left": "S",
+        "right": ["ACB", "CbB", "Ba"]
+      },
+      {
+        "left": "A",
+        "right": ["da", "BC"]
+      },
+      {
+        "left": "B",
+        "right": ["g", ""]
+      },
+      {
+        "left": "C",
+        "right": ["h", ""]
+      }
+    ],
+    "startingSymbol": "S"
+  }
+}

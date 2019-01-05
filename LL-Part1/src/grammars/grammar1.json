@@ -1,0 +1,32 @@
+{
+  "grammar": {
+    "terminals": [
+      "1",
+      "0"
+    ],
+
+    "nonTerminals": [
+      "S",
+      "A"
+    ],
+
+    "productions": [
+      {
+        "left": "S",
+        "right": [
+          "1S",
+          "A"
+        ]
+      },
+      {
+        "left": "A",
+        "right": [
+          "0A",
+          ""
+        ]
+      }
+    ],
+
+    "startingSymbol": "S"
+  }
+}

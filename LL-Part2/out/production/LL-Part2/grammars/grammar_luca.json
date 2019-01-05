@@ -1,0 +1,121 @@
+{
+  "grammar": {
+    "terminals": ["+","-","*","/","=","<","<=","==", "!=",">=",">",
+                  "[","]","{","}","(",")",":",";",
+                  "array","char","int","bool","double","float","const","do","else","if","of","psvm","scan","while","sout",
+                  "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+                  "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+                  "0","1","2","3","4","5","6","7","8","9"],
+    "nonTerminals": ["program", "declaration", "type1", "arraydecl", "type", "cmpdstmt", "stmtlist", "stmt", "simplstmt",
+                    "structstmt", "assignstmt", "ifstmt", "expression", "term", "factor", "iostmt", "whilestmt",
+                    "condition", "relation", "identifier", "integer", "string", "character", "letter", "digit", "no"],
+    "productions": [
+      {
+        "left": "program",
+        "right": ["psvm cmpdstmt"]
+      },
+      {
+        "left": "declaration",
+        "right": ["identifier : type"]
+      },
+      {
+        "left": "type1",
+        "right": ["bool","char","int","double","float"]
+      },
+      {
+        "left": "arraydecl",
+        "right": ["array [ no ] of type1"]
+      },
+      {
+        "left": "type",
+        "right": ["type1","arraydecl"]
+      },
+      {
+        "left": "cmpdstmt",
+        "right": ["{ stmtlist }"]
+      },
+      {
+        "left": "stmtlist",
+        "right": ["stmt ;","stmt ; stmtlist"]
+      },
+      {
+        "left": "stmt",
+        "right": ["simplstmt","structstmt"]
+      },
+      {
+        "left": "simplstmt",
+        "right": ["declaration","assignstmt","iostmt"]
+      },
+      {
+        "left": "assignstmt",
+        "right": ["identifier = expression"]
+      },
+      {
+        "left": "expression",
+        "right": ["term + expression","term"]
+      },
+      {
+        "left": "term",
+        "right": ["factor * term","factor"]
+      },
+      {
+        "left": "factor",
+        "right": ["( expression )","identifier","integer","string"]
+      },
+      {
+        "left": "iostmt",
+        "right": ["scan ( identifier )", "sout ( identifier )"]
+      },
+      {
+        "left": "structstmt",
+        "right": ["cmpdstmt","ifstmt","whilestmt"]
+      },
+      {
+        "left": "ifstmt",
+        "right": ["if ( condition ) { stmt }", "if ( condition ) { stmt } else { stmt }"]
+      },
+      {
+        "left": "whilestmt",
+        "right": ["while ( condition ) do { stmt }"]
+      },
+      {
+        "left": "condition",
+        "right": ["expression relation expression"]
+      },
+      {
+        "left": "identifier",
+        "right": ["letter", "identifier letter digit"]
+      },
+      {
+        "left": "relation",
+        "right": ["<","<=","==","!=", ">=",">"]
+      },
+      {
+        "left": "integer",
+        "right": ["+ no","- no","no"]
+      },
+      {
+        "left": "no",
+        "right": ["digit","digit no"]
+      },
+      {
+        "left": "character",
+        "right": ["letter", "digit"]
+      },
+      {
+        "left": "string",
+        "right": ["character","character string"]
+      },
+      {
+        "left": "letter",
+        "right": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+          "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+      },
+      {
+        "left": "digit",
+        "right": ["0","1","2","3","4","5","6","7","8","9"]
+      }
+    ],
+    "startingSymbol": "program"
+  }
+}
